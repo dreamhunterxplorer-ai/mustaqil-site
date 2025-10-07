@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصتي - منصة الخدمات المصغرة العربية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1dbf73;
+            --primary-dark: #19a463;
+            --secondary: #222325;
+            --light: #f7f7f7;
+            --dark: #404145;
+            --gray: #74767e;
+            --border: #e4e5e7;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --info: #3498db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 8px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a i {
+            margin-right: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 9px 18px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(29, 191, 115, 0.1);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .user-menu:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1dbf73 0%, #0f9d58 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,192C672,181,768,139,864,138.7C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center bottom;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-box button {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-white {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline-white:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-seller {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .seller-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .seller-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .seller-info .rating {
+            color: #ffb33e;
+            font-size: 12px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .service-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .price {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--primary);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background-color: white;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .step {
+            padding: 30px 20px;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(29, 191, 115, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary);
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .step p {
+            color: var(--gray);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1dbf73 0%, #0f9d58 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        
+        .stat-item p {
+            font-size: 18px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #fafafa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Pricing */
+        .pricing {
+            background-color: white;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .pricing-header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #1dbf73 0%, #0f9d58 100%);
+            color: white;
+        }
+        
+        .pricing-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .pricing-header .price {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .pricing-header .period {
+            opacity: 0.8;
+        }
+        
+        .pricing-body {
+            padding: 30px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
+        
+        .pricing-features li i {
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .pricing-features li.disabled {
+            color: var(--gray);
+        }
+        
+        .pricing-features li.disabled i {
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1dbf73 0%, #0f9d58 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #b5b6ba;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li a i {
+            margin-left: 8px;
+            font-size: 14px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #404145;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #404145;
+            color: #b5b6ba;
+            font-size: 14px;
+        }
+        
+        /* Auth Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-weight: 700;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .auth-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .auth-tab.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-rocket"></i>
+                    منصتي<span>.com</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="#services"><i class="fas fa-th-large"></i> الخدمات</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-play-circle"></i> كيف تعمل</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-star"></i> التقييمات</a></li>
+                        <li><a href="#pricing"><i class="fas fa-tags"></i> الأسعار</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="#" class="btn-outline" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </a>
+                    <a href="#" class="cta-button" id="registerBtn">
+                        <i class="fas fa-user-plus"></i> انضم إلينا
+                    </a>
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-avatar">م</div>
+                        <span>محمد</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>منصة الخدمات المصغرة العربية</h1>
+                <p>اكتشف آلاف المواهب العربية، أو قدّم خدماتك واربح من مهاراتك عبر الإنترنت</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن أي خدمة تريدها...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> استعرض الخدمات
+                    </a>
+                    <a href="#" class="btn btn-outline-white" id="sellServicesBtn">
+                        <i class="fas fa-briefcase"></i> بيع خدماتك
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا المميزة</h2>
+                <p>اكتشف مجموعة متنوعة من الخدمات المصغرة التي يقدمها أفضل المستقلين العرب</p>
+            </div>
+            
+            <div class="categories">
+                <div class="category-btn active">جميع الخدمات</div>
+                <div class="category-btn">برمجة وتطوير</div>
+                <div class="category-btn">تصميم جرافيك</div>
+                <div class="category-btn">تسويق إلكتروني</div>
+                <div class="category-btn">كتابة وترجمة</div>
+                <div class="category-btn">فيديو وأنيميشن</div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-badge">الأكثر طلباً</div>
+                    <div class="service-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-seller">
+                            <div class="seller-avatar">أ</div>
+                            <div class="seller-info">
+                                <h4>أحمد محمد</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(124)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>تطوير موقع إلكتروني متكامل</h3>
+                        <p>سأقوم بتصميم وتطوير موقع إلكتروني متكامل ومتجاوب مع جميع الأجهزة باستخدام أحدث التقنيات.</p>
+                        
+                        <div class="service-meta">
+                            <span><i class="far fa-clock"></i> 5 أيام</span>
+                            <span><i class="fas fa-sync-alt"></i> 3 مراجعات</span>
+                        </div>
+                        
+                        <div class="service-price">
+                            <div class="price">$150</div>
+                            <a href="#" class="cta-button">اطلب الآن</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-badge">مميز</div>
+                    <div class="service-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-seller">
+                            <div class="seller-avatar">س</div>
+                            <div class="seller-info">
+                                <h4>سارة عبدالله</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(98)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>تصميم هوية بصرية احترافية</h3>
+                        <p>أصمم لك هوية بصرية متكاملة تشمل شعار، ألوان، خطوط، وبطاقات عمل لتعزيز علامتك التجارية.</p>
+                        
+                        <div class="service-meta">
+                            <span><i class="far fa-clock"></i> 3 أيام</span>
+                            <span><i class="fas fa-sync-alt"></i> مراجعتان</span>
+                        </div>
+                        
+                        <div class="service-price">
+                            <div class="price">$100</div>
+                            <a href="#" class="cta-button">اطلب الآن</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-seller">
+                            <div class="seller-avatar">خ</div>
+                            <div class="seller-info">
+                                <h4>خالد العلي</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(76)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>إدارة حملات تسويق إلكتروني</h3>
+                        <p>أدير لك حملات تسويق إلكتروني على منصات التواصل الاجتماعي لزيادة مبيعاتك ووصولك.</p>
+                        
+                        <div class="service-meta">
+                            <span><i class="far fa-clock"></i> 7 أيام</span>
+                            <span><i class="fas fa-sync-alt"></i> مراجعتان</span>
+                        </div>
+                        
+                        <div class="service-price">
+                            <div class="price">$200</div>
+                            <a href="#" class="cta-button">اطلب الآن</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-th-list"></i> عرض جميع الخدمات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>كيف تعمل المنصة</h2>
+                <p>ثلاث خطوات بسيطة للحصول على الخدمة التي تحتاجها</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>ابحث عن الخدمة</h3>
+                    <p>ابحث عن الخدمة التي تحتاجها من بين آلاف الخدمات المصغرة المقدمة من مستقلين موثوقين</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>اطلب الخدمة</h3>
+                    <p>اختر الخدمة المناسبة واطلبها بسهولة مع تحديد الميزانية والموعد النهائي للتسليم</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-file-download"></i>
+                    </div>
+                    <h3>استلم عملك</h3>
+                    <p>استلم عملك الجاهز في الوقت المتفق عليه، مع ضمان الحق في التعديل حتى ترضى بالنتيجة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10,000+</h3>
+                    <p>خدمة مقدمة</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5,000+</h3>
+                    <p>مستقل نشط</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50,000+</h3>
+                    <p>عميل راضي</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>معدل الرضا</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>آراء عملائنا</h2>
+                <p>هذه بعض التعليقات من عملائنا السعداء الذين استفادوا من خدمات المنصة</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "لقد تفاجأت بجودة العمل وسرعة التسليم. الموقع الذي قام بتطويره أحد المستقلين تجاوز توقعاتي تماماً. أنصح بالتعامل مع المنصة بشدة!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>أحمد محمد</h4>
+                            <p>مدير شركة تقنية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "التصاميم التي قدمها المستقلون كانت إبداعية واحترافية، وساعدتني في تعزيز هوية علامتي التجارية. شكراً للفريق على العمل الرائع!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>سارة عبدالله</h4>
+                            <p>صاحبة متجر إلكتروني</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "استراتيجية التسويق الرقمي التي وضعها المستقل ساعدت في زيادة مبيعاتي بنسبة 40% خلال شهرين فقط. أنا سعيد جداً بالنتائج."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>خالد العلي</h4>
+                            <p>رائد أعمال</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>باقات العضوية</h2>
+                <p>اختر الباقة المناسبة لك وابدأ في تقديم خدماتك أو الاستفادة من مزايا إضافية</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>العضوية الأساسية</h3>
+                        <div class="price">$0</div>
+                        <div class="period">شهرياً</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> إنشاء عرض خدمة واحد</li>
+                            <li><i class="fas fa-check"></i> التواصل مع العملاء</li>
+                            <li><i class="fas fa-check"></i> عمولة 20% على المبيعات</li>
+                            <li class="disabled"><i class="fas fa-times"></i> عرض مميز للخدمات</li>
+                            <li class="disabled"><i class="fas fa-times"></i> دعم متميز</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">ابدأ مجاناً</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>العضوية الاحترافية</h3>
+                        <div class="price">$9</div>
+                        <div class="period">شهرياً</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> إنشاء 10 عروض خدمات</li>
+                            <li><i class="fas fa-check"></i> التواصل مع العملاء</li>
+                            <li><i class="fas fa-check"></i> عمولة 10% على المبيعات</li>
+                            <li><i class="fas fa-check"></i> عرض مميز للخدمات</li>
+                            <li class="disabled"><i class="fas fa-times"></i> دعم متميز</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%; background: white; color: var(--primary);">اشترك الآن</a>
+                    </div>
+                </div>
+                
+                <!-- Business Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>عضوية الأعمال</h3>
+                        <div class="price">$29</div>
+                        <div class="period">شهرياً</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> عروض خدمات غير محدودة</li>
+                            <li><i class="fas fa-check"></i> التواصل مع العملاء</li>
+                            <li><i class="fas fa-check"></i> عمولة 5% على المبيعات</li>
+                            <li><i class="fas fa-check"></i> عرض مميز للخدمات</li>
+                            <li><i class="fas fa-check"></i> دعم متميز</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">اشترك الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>جاهز لبدء رحلتك في العمل الحر؟</h2>
+            <p>انضم إلى آلاف المستقلين الناجحين وابدأ في كسب المال من مهاراتك اليوم</p>
+            <a href="#" class="btn btn-primary">
+                <i class="fas fa-rocket"></i> ابدأ الآن مجاناً
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>منصتي.com</h3>
+                    <p>أول منصة عربية متكاملة للخدمات المصغرة، تهدف إلى تمكين المواهب العربية وربطها بفرص العمل حول العالم.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> الخدمات</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-chevron-left"></i> كيف تعمل</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-left"></i> التقييمات</a></li>
+                        <li><a href="#pricing"><i class="fas fa-chevron-left"></i> الأسعار</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>الخدمات</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> برمجة وتطوير</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> تصميم جرافيك</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> تسويق إلكتروني</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> كتابة وترجمة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> فيديو وأنيميشن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>معلومات الاتصال</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> dreamkiller.official2025@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> 01016452781</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2025 منصتي.com - منصة الخدمات المصغرة العربية</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>انضم إلى منصتي</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-tab="login">تسجيل الدخول</div>
+                    <div class="auth-tab" data-tab="register">إنشاء حساب</div>
+                </div>
+                
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">البريد الإلكتروني</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">كلمة المرور</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">تسجيل الدخول</button>
+                    <div class="form-footer">
+                        <a href="#" id="forgotPassword">نسيت كلمة المرور؟</a>
+                    </div>
+                </form>
+                
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">الاسم الكامل</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">البريد الإلكتروني</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">كلمة المرور</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="أنشئ كلمة مرور قوية" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userType">نوع الحساب</label>
+                        <select id="userType" class="form-control" required>
+                            <option value="">اختر نوع الحساب</option>
+                            <option value="client">عميل (أريد شراء خدمات)</option>
+                            <option value="freelancer">مستقل (أريد بيع خدمات)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">إنشاء حساب</button>
+                    <div class="form-footer">
+                        <p>بالنقر على "إنشاء حساب" فإنك توافق على <a href="#">شروط الخدمة</a> و <a href="#">سياسة الخصوصية</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Authentication Modal
+        const authModal = document.getElementById('authModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const closeModal = document.querySelector('.close-modal');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+        const userMenu = document.getElementById('userMenu');
+        
+        // Open modal on button click
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            authModal.style.display = 'flex';
+            switchTab('login');
+        });
+        
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            authModal.style.display = 'flex';
+            switchTab('register');
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            authModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+            }
+        });
+        
+        // Switch between login and register tabs
+        function switchTab(tabName) {
+            authTabs.forEach(tab => {
+                if (tab.dataset.tab === tabName) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            authForms.forEach(form => {
+                if (form.id === `${tabName}Form`) {
+                    form.classList.add('active');
+                } else {
+                    form.classList.remove('active');
+                }
+            });
+        }
+        
+        // Add click event to tabs
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchTab(tab.dataset.tab);
+            });
+        });
+        
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate login
+            userMenu.style.display = 'flex';
+            authModal.style.display = 'none';
+            alert('تم تسجيل الدخول بنجاح!');
+        });
+        
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate registration
+            userMenu.style.display = 'flex';
+            authModal.style.display = 'none';
+            alert('تم إنشاء حسابك بنجاح!');
+        });
+        
+        // Sell Services Button
+        document.getElementById('sellServicesBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            authModal.style.display = 'flex';
+            switchTab('register');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.service-card, .step, .testimonial-card, .pricing-card');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if(position.top < window.innerHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialize elements with animation properties
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.service-card, .step, .testimonial-card, .pricing-card');
+            
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Trigger initial animation
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>
